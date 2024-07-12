@@ -1,0 +1,22 @@
+<div class="login-container">
+    <h2>Login</h2>
+    <form>
+    <!-- <form (ngSubmit)="onSubmit(titleInput, form)" #form> -->
+      <div class="form-group">
+        <label for="email">Email</label>
+        <!-- <input type="email" formControlName="email" class="form-control" placeholder="Enter your email"> -->
+        <input type="email" formControlName="email" class="form-control" placeholder="Enter your email" #titleInput>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <div class="input-group">
+          <input type="password" formControlName="password" class="form-control">
+            <span class="input-group-addon">
+              <i class="fas fa-eye" id="eye"></i>
+            </span>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <p>Don't have an account? <a href="/signup">Register</a></p>
+  </div>
