@@ -1,27 +1,51 @@
 <div class="signup-container">
     <h2>Sign up</h2>
-    <form>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="firstName">First Name</label>
         <input type="text" formControlName="firstName" class="form-control">
       </div>
+
       <div class="form-group">
         <label for="lastName">Last Name</label>
         <input type="text" formControlName="lastName" class="form-control">
       </div>
+
       <div class="form-group">
         <label for="email">Email</label>
         <input type="email" formControlName="email" class="form-control">
       </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input type="password" formControlName="password" class="form-control">
+
+      <div formGroupName="passwords">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" formControlName="password" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" formControlName="confirmPassword" class="form-control">
+        </div>
       </div>
+
       <div class="form-group">
-        <label for="confirmPassword">Confirm Password</label>
-        <input type="password" formControlName="confirmPassword" class="form-control">
+        <label for="terms-and-conditions">
+          <input type="checkbox" id="terms-and-conditions" name="terms" formControlName="agree" />
+          I AGREE TO THE TERMS AND CONDITIONS
+        </label>
       </div>
-      <button type="submit" class="btn btn-primary">Sign up</button>
+
+      <p class="form-actions">
+        <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
+        <button type="submit" class="btn btn-primary"  [ngStyle]="{'background': form.invalid ? 'gray' : 'green'}">Sign up</button>
+      </p>
+
+      @if (form.touched && form.invalid) {
+        <p class="control-error">
+          Invalid form - please check your input data.
+        </p>
+      }
     </form>
+
     <p>Already have an account? <a href="/login">Login</a></p>
 </div>

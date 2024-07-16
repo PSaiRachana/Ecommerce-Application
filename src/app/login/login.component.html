@@ -1,22 +1,36 @@
 <div class="login-container">
     <h2>Login</h2>
-    <form>
-    <!-- <form (ngSubmit)="onSubmit(titleInput, form)" #form> -->
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="email">Email</label>
-        <!-- <input type="email" formControlName="email" class="form-control" placeholder="Enter your email"> -->
-        <input type="email" formControlName="email" class="form-control" placeholder="Enter your email" #titleInput>
+        <label for="username">Username</label>
+        <div class="input-group">
+
+        <input type="text" id="username" class="form-control" placeholder="Enter your name" [formControl]="form.controls.username" />
+      </div>  
       </div>
+
       <div class="form-group">
         <label for="password">Password</label>
         <div class="input-group">
-          <input type="password" formControlName="password" class="form-control">
-            <span class="input-group-addon">
-              <i class="fas fa-eye" id="eye"></i>
+          <input type="password" id="password" formControlName="password" class="form-control password-container" />
+            <span class="eye-icon">
+              <i class="fa fa-eye" aria-hidden="true"></i>
             </span>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
+
+      <div class="form-action">
+        <button type="submit" class="btn btn-primary" [ngStyle]="{'background': form.invalid ? 'gray' : 'green'}">Login</button>
+      </div>
+
+      @if (NameIsInvalid) {
+        <p class="control-error">Please enter a valid user name.</p>
+      }
+
+      @if (passwordIsInvalid) {
+        <p class="control-error">Please enter a valid password (must be at least 6 characters long and contain a question mark).</p>
+      }
     </form>
-    <p>Don't have an account? <a href="/signup">Register</a></p>
-  </div>
+
+    <p class="control-user">Don't have an account? <a href="/signup">Register</a></p>
+</div>

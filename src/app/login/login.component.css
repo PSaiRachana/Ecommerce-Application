@@ -16,7 +16,7 @@
     margin-bottom: 10px;
   }
   
-  input[type="email"],
+  input[type="text"],
   input[type="password"] {
     width: 270px;
     padding: 10px;
@@ -26,7 +26,7 @@
   }
   
   button[type="submit"] {
-    width: 100%;
+    width: 50%;
     padding: 10px;
     background-color: #4CAF50;
     color: #fff;
@@ -38,7 +38,12 @@
   button[type="submit"]:hover {
     background-color: #3e8e41;
   }
-  
+
+  .form-action {
+    display: flex;
+    justify-content: center;
+  }
+
   .text-danger {
     color: red;
   }
@@ -47,10 +52,11 @@
     position: relative;
   }
   
-  .input-group-addon {
+  .eye-icon {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: 10;
+    top: 50%;
+    transform: translate(-50%);
     padding: 10px;
     cursor: pointer;
   }
@@ -63,3 +69,18 @@
   .fa-eye:hover {
     color: #333;
   }
+
+  .control-error {
+    height: 1.5rem;
+    margin-bottom: 2.5rem;
+    color: crimson;
+  }
+
+  .control-error p {
+    margin-bottom: 0;
+  }
+  
+  .password-container {
+    position: relative;
+  }
+  

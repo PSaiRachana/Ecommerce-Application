@@ -38,8 +38,6 @@
   }
   
   button[type="submit"] {
-    width: 100%;
-    padding: 10px;
     background-color: #4CAF50;
     color: #fff;
     border: none;
@@ -49,12 +47,6 @@
   
   button[type="submit"]:hover {
     background-color: #3e8e41;
-  }
-  
-  .text-danger {
-    color: #red;
-    font-size: 12px;
-    margin-top: 10px;
   }
   
   .signup-container p {
@@ -71,4 +63,29 @@
   .signup-container a:hover {
     color: #23527c;
   }
+
+  input[type="checkbox"] {
+    padding-right: 10px;
+  }
   
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-secondary {
+    background-color: #ccc;
+    color: #333;
+    margin-right: 20px
+  }
+  
+  .reset-btn {
+    margin-right: 10px;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+  }
