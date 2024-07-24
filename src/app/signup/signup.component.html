@@ -30,14 +30,14 @@
 
       <div class="form-group">
         <label for="terms-and-conditions" class="condition">
-          <input type="checkbox" id="terms-and-conditions" name="terms" formControlName="agree" />
+          <input type="checkbox" id="terms-and-conditions" name="terms" formControlName="agree" #termsCheckbox required />
           I AGREE TO THE TERMS AND CONDITIONS
         </label>
       </div>
 
       <p class="form-actions">
         <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
-        <button type="submit" class="btn btn-primary"  [ngStyle]="{'background': form.invalid ? 'gray' : 'green'}">Sign up</button>
+        <button type="submit" class="btn btn-primary"  [ngStyle]="{'background': form.invalid && !termsCheckbox.checked ? 'gray' : 'green'}">Sign up</button>
       </p>
 
       @if (form.touched && form.invalid) {
