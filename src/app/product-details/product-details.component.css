@@ -1,0 +1,45 @@
+.product-container {
+    display: flex;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.image {
+    width: 50vw;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+p {
+    font-size: 22px;
+}
+
+.action-event {
+    display: flex;
+    justify-content: center;
+}
+
+button[type="submit"] {
+    width: 150px;
+    padding: 15px;
+    background-color: #eb9b34;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+  
+button[type="submit"]:hover {
+    background-color: #eb9b34;
+}
+
+.text {
+    font-weight: 500;
+}

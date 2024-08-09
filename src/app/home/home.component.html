@@ -11,9 +11,10 @@
 <div class="products">
     @for(product of products(); track product.id) {
         <div class="container">
-        <img [src] = product.images class="images"/>
-        <p> {{ product.title }} </p>
-        <p> {{ product.price }} </p>
+            <img [src] = product.images class="images"/>
+            <p> {{ product.title }} </p>
+            <p> ₹ {{ product.price }} </p>
+            <a [routerLink]="['/product', product.id]" class="selected">View Details</a>
         </div>
     }
 </div>

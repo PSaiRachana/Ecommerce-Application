@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { CommonModule } from '@angular/common';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login' ,
   standalone: true,
-  imports: [HttpClientModule, FormsModule, ReactiveFormsModule, CommonModule],
+  imports: [HttpClientModule, FormsModule, ReactiveFormsModule, CommonModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -35,7 +36,7 @@ export class LoginComponent {
     )
   }
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   onSubmit() {
     console.log(this.form);
@@ -45,6 +46,10 @@ export class LoginComponent {
       console.log(userData);
       this.authService.login(userData).subscribe(response=>{
         console.log(response);
+        this.router.navigate(['/home']);
+        (error: string) => {
+          error = 'Invalid email or password';
+        }
       })
     }
 

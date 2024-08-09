@@ -37,7 +37,7 @@
 
       <p class="form-actions">
         <button type="button" class="btn btn-secondary" (click)="onReset()">Reset</button>
-        <button type="submit" class="btn btn-primary"  [ngStyle]="{'background': form.invalid && !termsCheckbox.checked ? 'gray' : 'green'}">Sign up</button>
+        <button type="submit" class="btn btn-primary"  [ngStyle]="{'background': form.invalid && !termsCheckbox.checked ? 'gray' : '#4CAF50'}">Sign up</button>
       </p>
 
       @if (form.touched && form.invalid) {
@@ -47,5 +47,5 @@
       }
     </form>
 
-    <p>Already have an account? <a href="/login">Login</a></p>
+    <p>Already have an account? <a routerLink="/login">Login</a></p>
 </div>

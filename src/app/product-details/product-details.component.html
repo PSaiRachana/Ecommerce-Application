@@ -1,0 +1,20 @@
+<app-header />
+
+<div class="product-container">
+    <div>
+        <img [src] = "productImage" class="image" />
+    </div>
+    <div>
+        <h2> {{ productTitle }} </h2>
+        <p class="text"> Product Details </p>
+        <p> {{ productInfo }} </p>
+        <p><span class="text"> Category : </span> {{ category }} </p>
+        <p><span class="text"> Price : </span> ₹ {{ price }} </p>
+        <div class="action-event">
+            <a [routerLink]="['/product/', productId, 'cart']">
+                <button type="submit"> Add to Cart </button>
+            </a>
+            <button type="submit"> Buy Now </button>
+        </div>
+    </div>
+</div>

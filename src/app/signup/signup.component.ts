@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { response } from 'express';
+import { RouterLink } from '@angular/router';
 
 // Factory Function
 function equalValues(controlName1: string, controlName2: string) {
@@ -21,7 +22,7 @@ function equalValues(controlName1: string, controlName2: string) {
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule, FormsModule],
+  imports: [ReactiveFormsModule, CommonModule, FormsModule, RouterLink],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
@@ -54,6 +55,7 @@ export class SignupComponent {
     if (this.form.valid) {
       const userData = this.form.value;
       console.log(userData);
+      console.log(userData.agree);
       this.authService.registerUser(userData).subscribe(response=>{
         console.log(response);
       })

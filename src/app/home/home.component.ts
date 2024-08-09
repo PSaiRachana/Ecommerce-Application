@@ -4,11 +4,13 @@ import { AuthService } from '../auth.service';
 import { Product } from '../products/products.model';
 import { catchError, map, throwError } from 'rxjs';
 import { HeaderComponent } from '../header/header.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule, HeaderComponent, HttpClientModule, RouterLink, RouterLinkActive],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

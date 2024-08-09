@@ -16,3 +16,7 @@
   p {
     padding-left: 40px;
   }
+
+  .selected {
+    margin-left: 40px;
+  }

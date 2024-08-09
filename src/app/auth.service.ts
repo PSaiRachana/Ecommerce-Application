@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
-import { Observable, map } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Observable, catchError, map, of } from 'rxjs';
 import { Product } from './products/products.model';
 
 @Injectable({
@@ -10,6 +10,9 @@ export class AuthService {
   private productsApiUrl = 'https://dummyjson.com/products';
   private loginApiUrl = 'https://dummyjson.com/auth/login';
   private userApiUrl = 'http://dummyjson.com/users/add';
+  private productApiUrl = 'https://dummyjson.com/products/1';
+
+  private isLoggedIn = false;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -24,9 +27,22 @@ export class AuthService {
       expiresInMins: expiresInMins
     }).pipe(
       map(response => {
+        this.isLoggedIn = true;
         return response;
+      }),
+      catchError(err => {
+        this.isLoggedIn = false;
+        return of(err);
       })
     );
+  }
+  
+  isAuthenticated(): boolean {
+    return this.isLoggedIn;
+  }
+
+  logout() {
+    this.isLoggedIn = false;
   }
 
   registerUser(user: any): Observable<any> {
@@ -39,6 +55,10 @@ export class AuthService {
         return response;
       })
     );
+  }
+  
+  getProductById(id: number): Observable<any> {
+    return this.httpClient.get(this.productApiUrl);
   }
   
 }

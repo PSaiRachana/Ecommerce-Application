@@ -1,12 +1,13 @@
 <header class="header">
   <div>
-    <a href="/" class="logo">E-Shop Logo</a>
+    <a routerLink="/" class="logo">E-Shop Logo</a>
     <nav>
       <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/">Cart</a></li>
-          <li><a href="/">Login</a></li>
-          <li><a href="/">SignUp</a></li>
+          <li><a routerLink="/home">Home</a></li>
+          <li><a routerLink="./">Cart</a></li>
+          <li><a routerLink="/login">Login</a></li>
+          <li><a routerLink="/signup">SignUp</a></li>
+          <li><button type="button" (click)="logout()">Logout</button></li>
       </ul>
     </nav>
   </div>
